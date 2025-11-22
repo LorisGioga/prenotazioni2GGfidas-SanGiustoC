@@ -197,41 +197,16 @@
                 </tbody>
             </table>
         </div>
-    
+
         <!-- MODALE PERSONALIZZATO -->
         <div v-if="modal.show" class="modal-overlay" @click.self="modalCancel">
             <div class="modal-box">
-                <div class="modal-header">
-                    <span class="modal-icon" :class="modal.type">
-                        <span v-if="modal.type === 'alert'">ℹ️</span>
-                        <span v-else-if="modal.type === 'confirm'">⚠️</span>
-                        <span v-else-if="modal.type === 'prompt'">✏️</span>
-                    </span>
-                    <h3 class="modal-title">{{ modal.title }}</h3>
-                </div>
-                
+                <h3 class="modal-title">{{ modal.title }}</h3>
                 <p class="modal-message">{{ modal.message }}</p>
-                
-                <input 
-                    v-if="modal.type === 'prompt'" 
-                    v-model="modal.input" 
-                    type="text" 
-                    class="modal-input"
-                    @keyup.enter="modalConfirm"
-                    placeholder="Inserisci qui...">
-                
+                <input v-if="modal.type === 'prompt'" v-model="modal.input" type="text" class="modal-input" @keyup.enter="modalConfirm" placeholder="Inserisci...">
                 <div class="modal-buttons">
-                    <button 
-                        v-if="modal.type !== 'alert'" 
-                        @click="modalCancel" 
-                        class="modal-btn modal-btn-secondary">
-                        Annulla
-                    </button>
-                    <button 
-                        @click="modalConfirm" 
-                        class="modal-btn modal-btn-primary">
-                        {{ modal.type === 'alert' ? 'OK' : 'Conferma' }}
-                    </button>
+                    <button v-if="modal.type !== 'alert'" @click="modalCancel" class="modal-btn-cancel">Annulla</button>
+                    <button @click="modalConfirm" class="modal-btn-ok">{{ modal.type === 'alert' ? 'OK' : 'Conferma' }}</button>
                 </div>
             </div>
         </div>
