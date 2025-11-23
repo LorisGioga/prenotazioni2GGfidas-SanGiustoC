@@ -88,7 +88,11 @@
 
             <div v-if="isAdmin" class="admin-settings">
                 
-                <h3>Gestione Pagine</h3>
+                <div class="admin-section-header">
+                    <h3>Gestione Pagine</h3>
+                    <button class="admin-exit" @click="exitAdmin()">Esci Area Riservata</button>
+                </div>
+                
                 <label>Aggiungi Nuova Pagina:</label>
                 <input type="text" v-model="newPageName" placeholder="Nome nuova pagina (es. Gennaio)">
                 <button @click="addPage()">Aggiungi Pagina</button>
