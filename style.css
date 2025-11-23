@@ -9,26 +9,22 @@ p {
 }
 
 .global-header {
-    background: #000; /* Sfondo nero */
+    background: #000;
     color: #fff;
     padding: 10px 50px;
     width: 100%;
-    /* Rimuovi la posizione fissa se non desideri che rimanga in alto durante lo scroll */
-    /* position: fixed; 
-    top: 0;
-    left: 0; */
     z-index: 1000; 
 }
 
 .header-content {
     max-width: 1200px;
-    margin: 0 auto; /* Centra il contenuto della barra */
+    margin: 0 auto;
     display: flex;
     align-items: center;
 }
 
 .header-logo {
-    height: 40px; /* Regola la dimensione del tuo logo */
+    height: 40px;
     margin-right: 15px;
 }
 
@@ -38,56 +34,12 @@ p {
 }
 
 #app.landing.privacy-text {
-    text-align: justify; /* Questo giustifica il testo */
+    text-align: justify;
     margin-top: 15px;
     margin-bottom: 15px;
     font-size: 1em;
 }
-/* ================================================= */
-/* 0. STILI BASE E RESET (aggiunto il padding al body) */
-/* ================================================= */
-/* ... (regole * e body esistenti) ... */
 
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    flex-direction: column; /* Necessario per impilare l'header e il container */
-    padding-top: 0; /* Rimosso padding-top se l'header non è fisso */
-}
-
-.container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 30px auto; 
-    padding: 30px; 
-    background: hsl(0, 0%, 100%);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.privacy-text {
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-
-/* ... (tutti gli altri stili esistenti seguono qui) ... */
-
-/* Media Query: Assicurati che l'header sia reattivo */
-@media screen and (max-width: 700px) {
-    /* ... (regole esistenti) ... */
-    
-    .global-header {
-        padding: 10px 15px;
-    }
-    
-    .header-text {
-        font-size: 1em;
-    }
-}
 /* ================================================= */
 /* 0. STILI BASE E RESET */
 /* ================================================= */
@@ -103,32 +55,39 @@ body {
     background: #ffffff;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    padding-top: 0;
 }
 
 .container {
     max-width: 1200px;
     width: 100%;
-    margin: 30px auto; /* Margine centrale ragionevole */
+    margin: 30px auto;
     padding: 30px; 
     background: hsl(0, 0%, 100%);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+.privacy-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 /* ================================================= */
-/* 1. STILI GENERALI PER I TAG (con margini corretti) */
+/* 1. STILI GENERALI PER I TAG */
 /* ================================================= */
 h1 {
     font-size: 2.4em;
     text-align: center;
-    margin-bottom: 100px; /* Correzione da 200px */
+    margin-bottom: 100px;
 }
 
 h2 {
     font-size: 2.0em;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 10px; /* Correzione da 300px */
+    margin-bottom: 10px;
     color: red;
 }
 
@@ -141,10 +100,9 @@ h3 {
 h4 {
     font-size: 1.1em;
     margin-top: 10px;
-    margin-bottom: 30px; /* Correzione da 200px */
+    margin-bottom: 30px;
 }
 
-/* Correzione Margini h5, h6, p per evitare disallineamenti negativi */
 h5, h6, p {
     font-size: 1.1em;
     text-align: left;
@@ -154,14 +112,14 @@ h5, h6, p {
 }
 
 /* ================================================= */
-/* 2. STILI SPECIFICI PER PAGINA (Sovrascrivono gli stili generali) */
+/* 2. STILI SPECIFICI PER PAGINA */
 /* ================================================= */
 
 /* --- A. Vista LANDING --- */
 #app.landing .main-title {
-    color: #007bff; /* Blu diverso dal default */
+    color: #007bff;
     font-weight: bold;
-    margin-bottom: 40px; /* Spazio vuoto specifico per la landing */
+    margin-bottom: 40px;
 }
 
 #app.landing .privacy-text {
@@ -179,17 +137,16 @@ h5, h6, p {
     margin-bottom: 20px;
 }
 
-/* --- C. Vista PAGE SELECT (Pagina 3) --- */
+/* --- C. Vista PAGE SELECT --- */
 #app.pageSelect .main-title {
-    color: #8e44ad; /* Viola */
+    color: #8e44ad;
     font-size: 28px;
     font-weight: 600;
-    margin-bottom: 30px; /* Spazio H1 corretto */
+    margin-bottom: 30px;
 }
 
 #app.pageSelect .top-nav {
-    /* La tua navigazione in questa vista */
-    margin-bottom: 20px; /* Correzione da 2000px */
+    margin-bottom: 20px;
 }
 
 #app.pageSelect h2 {
@@ -201,10 +158,10 @@ h5, h6, p {
     text-align: left;
 }
 
-/* --- D. Vista PAGE 1 / PAGE 2 (Prenotazione) --- */
+/* --- D. Vista PAGE 1 / PAGE 2 --- */
 #app.page1 .main-title,
 #app.page2 .main-title {
-    color: #27ae60; /* Verde */
+    color: #27ae60;
     font-size: 2.2em;
     margin-bottom: 10px;
 }
@@ -219,7 +176,7 @@ h5, h6, p {
 }
 
 /* ================================================= */
-/* 3. STILI COMPONENTI (Validi per tutte le pagine) */
+/* 3. STILI COMPONENTI */
 /* ================================================= */
 
 .landing-buttons, 
@@ -250,8 +207,6 @@ button.reset {
     color: #fff; 
     float: right; 
 }
-
-/* ... il resto dei tuoi stili per i bottoni, input, table, media query ... */
 
 button.exit { 
     background: red; 
@@ -360,7 +315,6 @@ tr:nth-child(odd) {
     margin-bottom: 15px;
 }
 
-/* NUOVE REGOLE PER GESTIONE DINAMICA PAGINE */
 .page-management-row {
     display: flex;
     align-items: center;
@@ -379,6 +333,100 @@ tr:nth-child(odd) {
     flex-shrink: 0;
 }
 
+/* ================================================= */
+/* STILI MODALE SEMPLICI */
+/* ================================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiato da center a flex-start */
+    padding-top: 100px; /* Aggiunto padding dall'alto */
+    z-index: 9999;
+    overflow-y: auto; /* Permette scroll se necessario */
+}
+
+.modal-box {
+    background: white;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative; /* Aggiunto per garantire che rimanga visibile */
+}
+
+.modal-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #000;
+    margin: 0 0 15px 0;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+.modal-message {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    border: 2px solid #000;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-btn-ok,
+.modal-btn-cancel {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-btn-ok {
+    background: #000;
+    color: white;
+}
+
+.modal-btn-cancel {
+    background: #ccc;
+    color: #333;
+}
+
+.modal-btn-ok:hover {
+    background: #333;
+}
+
+.modal-btn-cancel:hover {
+    background: #999;
+}
+
+/* ================================================= */
+/* MEDIA QUERY */
+/* ================================================= */
 @media screen and (max-width: 700px) {
     .container { 
         padding: 5px; 
@@ -395,5 +443,18 @@ tr:nth-child(odd) {
     td, 
     button { 
         font-size: 0.85em; 
+    }
+    
+    .global-header {
+        padding: 10px 15px;
+    }
+    
+    .header-text {
+        font-size: 1em;
+    }
+    
+    .modal-box {
+        width: 95%;
+        padding: 15px;
     }
 }
