@@ -1,0 +1,6 @@
+PrenotaQui 1.1
+
+Aggiornato il 07/12/2025 con gibhub
+
+- Modifica in cui non è scritta la password in app.js ma solo nel firebase (la si può sempre e comunque modificare dal programma)
+ma è più sicura.

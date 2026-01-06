@@ -64,6 +64,41 @@
             <button @click="view==='register'? register(): login()">Avanti</button>
         </div>
 
+        <!-- NUOVA PAGINA IDONEI (dopo login) -->
+        <div v-else-if="view==='idoneiPage'">
+            <h1 class="main-title">{{ idoneiTitle }}</h1>
+            <nav class="top-nav">
+                <div></div>
+                <div>
+                    <button @click="view='pageSelect'">Avanti</button>
+                    <button @click="logout()">Indietro</button>
+                    <button v-if="!isAdmin" @click="adminLogin()">Area Riservata</button>
+                    <button class="exit" @click="logout()">Esci</button>
+                </div>
+            </nav>
+            
+            <p v-if="idoneiList.length === 0" style="color:#999; font-style:italic; text-align:center; margin:30px 0;">
+                Nessuna lista disponibile al momento.
+            </p>
+
+            <table v-else class="bookings-table">
+                <thead>
+                    <tr><th>Matricola</th><th>Nome Cognome</th></tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(persona, idx) in idoneiList" :key="idx" 
+                        :class="{ 'highlight-user': user.matricola && String(persona.matricola) === String(user.matricola) }">
+                        <td>{{ persona.matricola }}</td>
+                        <td>{{ mask(persona.cognome + ' ' + persona.nome, persona.matricola) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top:20px; font-size:0.9em; color:#666; text-align:center;">
+                ℹ️ I nomi completi sono visibili solo alle persone con la propria matricola.
+            </p>
+        </div>
+
         <div v-else-if="view==='pageSelect'">
             <h1 class="main-title">Seleziona una pagina</h1>
             <nav class="top-nav">
@@ -82,7 +117,7 @@
             </label>
             <p>&nbsp;&nbsp;&nbsp;</p>
             
-            <button @click="view='auth'">Indietro</button>
+            <button @click="view='idoneiPage'">Indietro</button>
             <button @click="enterPage()">Avanti</button>
             <h3></h3>
             <p></p>
@@ -138,6 +173,34 @@
 
                 <h3>Modifica password admin</h3>
                 <input type="password" v-model="adminPass" @change="updateAdminPass()" placeholder="Nuova password admin">
+                
+                <p>&nbsp;&nbsp;&nbsp;</p>
+                <hr>
+                <hr>
+
+                <h3>Gestione Lista Persone Idonee</h3>
+                <label>Titolo Pagina Idonei:</label>
+                <input class="text-input" v-model="idoneiTitle" @blur="updateIdoneiTitle()">
+                
+                <div style="margin-top:15px;">
+                    <button @click="importExcelIdonei()">Carica Lista Excel</button>
+                    <button class="reset" @click="resetIdoneiList()">Cancella Lista</button>
+                    <input ref="fileInputIdonei" type="file" accept=".xlsx" @change="handleFileUploadIdonei" style="display:none">
+                </div>
+
+                <p style="margin-top:10px; font-size:0.9em; color:#666;">
+                    Il file Excel deve contenere le colonne: <strong>Matricola</strong> e <strong>Nome</strong> (formato: "COGNOME NOME")
+                </p>
+
+                <div v-if="idoneiList.length > 0" style="background:#f0f0f0; padding:15px; border-radius:8px; margin-top:15px;">
+                    <h4>Lista Caricata ({{ idoneiList.length }} persone)</h4>
+                    <div v-for="(persona, idx) in idoneiList.slice(0, 5)" :key="idx" style="padding:8px 0; border-bottom:1px solid #ddd;">
+                        <strong>{{ persona.matricola }}</strong> - {{ persona.cognome }} {{ persona.nome }}
+                    </div>
+                    <p v-if="idoneiList.length > 5" style="color:#666; font-style:italic; margin-top:10px;">
+                        ... e altre {{ idoneiList.length - 5 }} persone
+                    </p>
+                </div>
             </div>
         </div>
 
