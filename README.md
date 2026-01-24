@@ -1,12 +1,15 @@
-# 🩸 FIDAS San Giusto Canavese - Sistema Prenotazioni
+# 🩸 PrenotaQui - Sistema Prenotazioni Donazioni di Sangue
 
-Sistema web per la gestione delle prenotazioni delle donazioni di sangue del Gruppo FIDAS adsp di San Giusto Canavese.
+PrenotaQui è un’applicazione web open-source per la gestione delle prenotazioni delle donazioni di sangue.
+È progettata per associazioni di donatori (come FIDAS, AVIS e realtà simili) e consente ai donatori di registrarsi, consultare la lista delle
+persone idonee e prenotare una fascia oraria per la donazione.
+L’applicazione è sviluppata e mantenuta da **Gioga Loris** ed è attualmente utilizzata dal Gruppo FIDAS adsp di San Giusto Canavese.
 
 ## 📋 Descrizione
 
 Applicazione web che permette ai donatori di:
 - Registrarsi e accedere al sistema
-- Visualizzare la lista delle persone idonee alla donazione (da Pangea)
+- Visualizzare la lista delle persone idonee alla donazione (Tipo Fidas: lista persone idonee Pangea)
 - Prenotare una fascia oraria per la donazione
 - Gestire le proprie prenotazioni
 
@@ -22,14 +25,14 @@ Gli amministratori possono:
 ### Per i Donatori
 - **Registrazione veloce**: Compilazione completa solo alla prima registrazione
 - **Login semplificato**: Accessi successivi con solo email e password
-- **Lista Persone Idonee**: Visualizzazione della lista Pangea con privacy (nomi mascherati, completi solo per il proprio profilo)
+- **Lista Persone Idonee**: Visualizzazione della lista "Pangea" con privacy (nomi mascherati, completi solo per il proprio profilo)
 - **Prenotazione Fasce Orarie**: Sistema a fasce con visualizzazione posti disponibili
 - **Evidenziazione Personale**: La propria riga nella lista idonei è evidenziata in arancione
 
 ### Per gli Amministratori
 - **Area Riservata**: Accesso tramite password admin
 - **Gestione Pagine**: Creazione/modifica/eliminazione pagine di prenotazione (es. giorni diversi)
-- **Gestione Lista Idonei**: Caricamento file Excel da Pangea, modifica titolo, cancellazione lista
+- **Gestione Lista Idonei**: Caricamento file Excel da "Pangea", modifica titolo, cancellazione lista
 - **Gestione Prenotazioni**: Visualizzazione completa, prenotazione per altri utenti, cancellazione, reset
 - **Export/Import Excel**: Download e caricamento massivo delle prenotazioni
 - **Configurazioni**: Modifica numero posti per fascia, blocco prenotazioni, testi interfaccia
@@ -47,7 +50,7 @@ Gli amministratori possono:
 
 ## 📁 Struttura File
 ```
-FIDAS-Prenotazioni/
+PrenotaQui/
 ├── index.html          # Struttura HTML principale
 ├── app.js              # Logica applicazione (Vue + Firebase)
 ├── style.css           # Stili personalizzati
@@ -215,7 +218,7 @@ Colonne richieste:
 
 ### Versione 1.0 - Gennaio 2026
 - ✅ Sistema di registrazione e login
-- ✅ Visualizzazione lista persone idonee Pangea
+- ✅ Visualizzazione lista persone idonee "Pangea"
 - ✅ Mascheramento nomi con privacy
 - ✅ Evidenziazione riga utente
 - ✅ Sistema prenotazioni con fasce orarie
@@ -227,19 +230,25 @@ Colonne richieste:
 
 ## 👥 Autori
 
-- **Sviluppo**: Progetto FIDAS San Giusto Canavese
+- **Sviluppo e progettazione**: Gioga Loris
+-**Utilizzo attuale**: Gruppo FIDAS adsp di San Giusto Canavese
 - **Powered by**: Firebase & Vue.js
 
 ## 📄 Licenza
 
-Questo progetto è proprietario del Gruppo FIDAS adsp di San Giusto Canavese.
+Questo progetto è distribuito con licenza MIT.
 
 ## 📞 Supporto
 
 Per assistenza o segnalazione bug:
-- **Telefono**: 333.78.36.256
-- **Sede**: Gruppo FIDAS adsp di San Giusto Canavese
+- **Telefono**: 347.09.45.464
+-**Email**: lorisgioga@gmail.com
+- **Sede**: Gioga Loris
 
+## ⚠️ Disclaimer
+
+Questo software è uno strumento organizzativo e non è un dispositivo medico.
+Non sostituisce sistemi sanitari ufficiali né processi di idoneità clinica.
 ---
 
 **Versione**: 1.0  

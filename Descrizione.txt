@@ -1,5 +1,0 @@
-PrenotaQui 1.1
-
-Aggiornato il 19/01/2026 con 
-
-- Inserito in più la lista pangea (non si vedeva a tutti)
