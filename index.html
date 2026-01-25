@@ -30,7 +30,14 @@
             <p class="privacy-text">Ai sensi del Regolamento (UE) 2016/679 (GDPR), informiamo che i dati personali inseriti nel presente modulo di prenotazione sono trattati esclusivamente per finalità organizzative legate alla donazione di sangue. Il trattamento è svolto da persone autorizzate dal Presidente del Gruppo FIDAS San Giusto, Titolare del trattamento, nell'ambito delle attività associative e in conformità all'informativa sottoscritta dal donatore al momento dell'iscrizione alla FIDAS. I dati raccolti non saranno utilizzati per altri scopi e non saranno comunicati a soggetti terzi, salvo obblighi di legge. Il trattamento avviene nel rispetto delle misure di sicurezza previste dalla normativa vigente. Per ulteriori informazioni sul trattamento dei dati, è possibile consultare l'Informativa Privacy FIDAS disponibile presso la sede o richiederne copia al momento della donazione.</p>
             
             <h4>Prenotandoti, DICHIARI di aver preso visione di questa formativa.</h4>
-            <hr>           
+            <hr> 
+            <p>&nbsp;&nbsp;&nbsp;</p>
+            <p style="margin-top:10px; font-size:1em; color:#2e2d2d; text-align:left;">
+             ℹ️ Nuovo utente → Registrati
+            </p> 
+              <p style="margin-top:10px; font-size:1em; color:#2e2d2d; text-align:left;">
+             ℹ️ Utente già registrato → Accedi
+            </p>                  
             <div class="landing-buttons">
                 <button @click="view='auth'">Accedi</button>
                 <button @click="view='register'">Registrati</button>
@@ -49,6 +56,7 @@
                 Inserisci la tua E-mail e Password per accedere.<br>
                 <small style="color:#696767;">Non serve compilare Cognome, Nome e Matricola per il login.</small>
             </h5>
+            
             <div class="form-container">
                 <input type="text" v-model="user.lastName" placeholder="Cognome" required
                   @keydown.tab.prevent="focusNext($event)"
@@ -66,14 +74,20 @@
                   @keydown.tab.prevent="focusNext($event)"
                   @keydown.arrow-down.prevent="focusNext($event)">
             </div>
+              
             <p>&nbsp;&nbsp;&nbsp;</p>
             <button @click="view='landing'">Indietro</button>
             <button @click="view==='register'? register(): login()">Avanti</button>
+             <p style="margin-top:20px; font-size:1em; color:#2e2d2d; text-align:left;">
+             ℹ️ Dopo l’accesso o la prima registrazione il caricamento dei dati può richiedere alcuni secondi. 
+             Ti preghiamo di attendere senza ricaricare la pagina.
+            </p>  
         </div>
 
         <!-- NUOVA PAGINA IDONEI (dopo login) -->
         <div v-else-if="view==='idoneiPage'" :key="'idonei-' + idoneiList.length">
             <h1 class="main-title">{{ idoneiTitle }}</h1>
+            
             <nav class="top-nav">
                 <div>
                     <button @click="forceReloadIdonei()" style="background:#28a745; margin:0;">🔄 Aggiorna Lista</button>
@@ -86,6 +100,13 @@
                 </div>
             </nav>
             
+             <p style="margin-top:20px; font-size:1em; color:#2e2d2d; text-align:left;">
+                ℹ️ La lista delle persone idonee viene caricata automaticamente.
+                Se non la visualizzi subito, clicca su “🔄 Aggiorna lista” per ricaricarla.
+            </p>     
+             <p style="margin-top:20px; font-size:0.9em; color:#666464; text-align:left;">
+                ℹ️ I nomi completi sono visibili solo alle persone con la propria matricola.
+            </p>   
             <p v-if="idoneiList.length === 0" style="color:#999; font-style:italic; text-align:center; margin:30px 0;">
                 Nessuna lista disponibile al momento.
             </p>
@@ -103,9 +124,7 @@
                 </tbody>
             </table>
 
-            <p style="margin-top:20px; font-size:0.9em; color:#666; text-align:center;">
-                ℹ️ I nomi completi sono visibili solo alle persone con la propria matricola.
-            </p>
+            
         </div>
 
         <div v-else-if="view==='pageSelect'">
@@ -124,8 +143,11 @@
                     </option>
                 </select>
             </label>
-            <p>&nbsp;&nbsp;&nbsp;</p>
             
+            <p style="margin-top:20px; font-size:1em; color:#2e2d2d; text-align:left;">
+                ℹ️ Anche se sono presenti più pagine, puoi effettuare una sola prenotazione complessiva.
+            </p>  
+            <p>&nbsp;&nbsp;&nbsp;</p>   
             <button @click="view='idoneiPage'">Indietro</button>
             <button @click="enterPage()">Avanti</button>
             <h3></h3>
@@ -242,8 +264,11 @@
                         {{ slot.id===8 ? 'Riserve' : slot.label }} – {{ remaining(slot) }} posti
                     </option>
                 </select>
-                <p>&nbsp;&nbsp;</p>
                 
+                <p style="margin-top:20px; font-size:1em; color:#2e2d2d; text-align:left;">
+             ℹ️ Seleziona una fascia oraria disponibile e clicca su Prenota per confermare.
+                </p>  
+                <p>&nbsp;&nbsp;</p>
                 <button @click="confirmBook()">Prenota</button>
             </div>
             <p>&nbsp;&nbsp;&nbsp;</p>
